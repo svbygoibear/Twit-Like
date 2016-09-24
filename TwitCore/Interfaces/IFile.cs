@@ -8,5 +8,7 @@ namespace TwitCore.Interfaces {
         String FileName { get; set; }
         String Path { get; set; }
         String Extension { get; set; }
+
+        String ReadFile(String fileName, String path, String extension);
     }
 }
