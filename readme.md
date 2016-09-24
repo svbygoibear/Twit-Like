@@ -16,9 +16,11 @@ Your program needs to write console output as follows. For each user / follower 
 
 Here is an example. Given user file named user.txt:
 
-> Ward follows Alan
-> Alan follows Martin
-> Ward follows Martin, Alan
+```
+Ward follows Alan
+Alan follows Martin
+Ward follows Martin, Alan
+```
 
  And given tweet file named tweet.txt:
 
