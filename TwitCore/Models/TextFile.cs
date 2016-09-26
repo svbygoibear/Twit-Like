@@ -7,7 +7,9 @@ using TwitCore.Interfaces;
 using TwitCore.Helpers;
 
 namespace TwitCore.Models {
-    //File type which will be used for reading in tweets for the console application
+    /// <summary>
+    /// File type which will be used for reading in tweets for the console application
+    /// </summary>
     public class TextFile : IFile {
         #region fields
         private string extension;
@@ -48,7 +50,7 @@ namespace TwitCore.Models {
         /// </summary>
         /// <returns>Base64 string</returns>
         public string ReadFileAsBase64() {
-            if ((this.path == null) || this.path.Length == 0)
+            if (this.path == null || this.path.Length == 0)
                 throw new ArgumentNullException("TextFile.path");
             return System.Text.Encoding.UTF8.EncodeBase64(ReadFile());
         }
