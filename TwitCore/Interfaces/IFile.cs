@@ -9,6 +9,6 @@ namespace TwitCore.Interfaces {
         String Path { get; set; }
         String Extension { get; set; }
 
-        String ReadFile(String fileName, String path, String extension);
+        String ReadFileAsBase64();
     }
 }
