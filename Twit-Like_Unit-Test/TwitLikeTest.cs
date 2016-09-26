@@ -21,5 +21,11 @@ namespace Twit_Like_Unit_Test {
             var expectedResult = "QWxhbj4gSWYgeW91IGhhdmUgYSBwcm9jZWR1cmUgd2l0aCAxMCBwYXJhbWV0ZXJzLCB5b3UgcHJvYmFibHkgbWlzc2VkIHNvbWUuDQpXYXJkPiBUaGVyZSBhcmUgb25seSB0d28gaGFyZCB0aGluZ3MgaW4gQ29tcHV0ZXIgU2NpZW5jZTogY2FjaGUgaW52YWxpZGF0aW9uLCBuYW1pbmcgdGhpbmdzIGFuZCBvZmYtYnktMSBlcnJvcnMuDQpBbGFuPiBSYW5kb20gbnVtYmVycyBzaG91bGQgbm90IGJlIGdlbmVyYXRlZCB3aXRoIGEgbWV0aG9kIGNob3NlbiBhdCByYW5kb20uDQo=";
             Assert.AreEqual<string>(expectedResult, actualResult);
         }
+
+        [TestMethod]
+        public void TestListRead() {
+            var userFile = new TextFile("tweet", @"C:\Users\Simone\Desktop\TestFiles\tweet.txt", ".txt");
+            var actualResult = userFile.ReadFileToList();
+        }
     }
 }

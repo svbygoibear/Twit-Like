@@ -54,6 +54,26 @@ namespace TwitCore.Models {
                 throw new ArgumentNullException("TextFile.path");
             return System.Text.Encoding.UTF8.EncodeBase64(ReadFile());
         }
+
+        /// <summary>
+        /// Reads a text file to plain string
+        /// </summary>
+        /// <returns>String</returns>
+        public string ReadFileAsIs() {
+            if (this.path == null || this.path.Length == 0)
+                throw new ArgumentNullException("TextFile.path");
+            return ReadFile();
+        }
+
+        /// <summary>
+        /// Returns the read file as a list of string
+        /// </summary>
+        /// <returns>List of string, each string item being a line</returns>
+        public List<string> ReadFileToList() {
+            if (this.path == null || this.path.Length == 0)
+                throw new ArgumentNullException("TextFile.path");
+            return ReadFileList();
+        }
         #endregion public methods
 
         #region private methods
@@ -66,6 +86,19 @@ namespace TwitCore.Models {
             if(File.Exists(this.path))
                 using (StreamReader sr = new StreamReader(this.path))
                     result = sr.ReadToEnd();
+            return result;
+        }
+
+        /// <summary>
+        /// Reads a file line by line
+        /// </summary>
+        /// <returns>List of string for each line</returns>
+        private List<string> ReadFileList() {
+            var result = new List<string>();;
+            if (File.Exists(this.path))
+                foreach (var line in File.ReadLines(this.path))
+                    if(line != String.Empty)
+                        result.Add(line.Trim(' '));
             return result;
         }
         #endregion private methods
