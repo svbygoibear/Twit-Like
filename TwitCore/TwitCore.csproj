@@ -39,7 +39,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Helpers\Base64Handler.cs" />
     <Compile Include="Helpers\TweetAnalyser.cs" />
     <Compile Include="Helpers\UserAnalyser.cs" />

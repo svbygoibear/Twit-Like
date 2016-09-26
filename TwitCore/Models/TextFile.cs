@@ -63,8 +63,9 @@ namespace TwitCore.Models {
         /// <returns>File as a string</returns>
         private string ReadFile() {
             string result = String.Empty;
-            using (StreamReader sr = new StreamReader(this.path))
-                result = sr.ReadToEnd();
+            if(File.Exists(this.path))
+                using (StreamReader sr = new StreamReader(this.path))
+                    result = sr.ReadToEnd();
             return result;
         }
         #endregion private methods

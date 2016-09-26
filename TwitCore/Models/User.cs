@@ -12,8 +12,10 @@ namespace TwitCore.Models {
         #region fields
         private string name;
         private string surname;
+        private string handle;
         private TimeZone timeZone;
         private List<Tweet> tweets;
+        private List<IPerson> following;
         #endregion fields
 
         #region properties
@@ -36,10 +38,25 @@ namespace TwitCore.Models {
             get { return surname; }
             set { surname = value; }
         }
+
+        public List<IPerson> Following {
+            get { return following; }
+            set { following = value; }
+        }
+
+        public string Handle {
+            get { return handle; }
+            set { handle = value; }
+        }
         #endregion properties
 
         #region constructor
         public User() { }
+
+        public User(string handle, List<IPerson> following) {
+            this.Handle = handle;
+            this.Following = following;
+        }
         #endregion constructor
     }
 }
