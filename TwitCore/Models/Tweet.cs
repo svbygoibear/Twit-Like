@@ -5,12 +5,21 @@ using System.Text;
 
 namespace TwitCore.Models{
     /// <summary>
-    /// 
+    /// Represents an actual tweet from a user
     /// </summary>
     public class Tweet {
+        #region fields
         private long dateTServer;
         private long dateTUser;
         private string message;
+        private string userHandle;
+        #endregion fields
+
+        #region properties
+        public string UserHandle {
+            get { return userHandle; }
+            set { userHandle = value; }
+        }
 
         public string Message {
             get { return message; }
@@ -26,5 +35,15 @@ namespace TwitCore.Models{
             get { return dateTServer; }
             set { dateTServer = value; }
         }
+        #endregion properties
+
+        #region constructor
+        public Tweet(long dateTServer, long dateTUser, string message, string userHandle) {
+            this.DateTServer = dateTServer;
+            this.DateTUser = dateTUser;
+            this.Message = message;
+            this.UserHandle = userHandle;
+        } 
+        #endregion constructor
     }
 }

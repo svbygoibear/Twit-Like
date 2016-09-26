@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TwitCore.Models {
+namespace TwitCore.Helpers {
     /// <summary>
-    /// Custom class used to define a timezone
+    /// A helper used to analyse the tweet.txt file
     /// </summary>
-    public class TimeZone {
+    public class TweetAnalyser {
     }
 }

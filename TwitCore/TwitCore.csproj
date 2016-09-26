@@ -41,6 +41,8 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Helpers\Base64Handler.cs" />
+    <Compile Include="Helpers\TweetAnalyser.cs" />
+    <Compile Include="Helpers\UserAnalyser.cs" />
     <Compile Include="Interfaces\IFile.cs" />
     <Compile Include="Interfaces\IPerson.cs" />
     <Compile Include="Models\TextFile.cs" />
