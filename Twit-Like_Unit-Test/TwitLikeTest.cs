@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TwitCore.Models;
 using System.IO;
+using TwitCore.Helpers;
 
 namespace Twit_Like_Unit_Test {
     [TestClass]
@@ -25,6 +26,13 @@ namespace Twit_Like_Unit_Test {
         [TestMethod]
         public void TestListRead() {
             var userFile = new TextFile("tweet", @"C:\Users\Simone\Desktop\TestFiles\tweet.txt", ".txt");
+            var actualResult = userFile.ReadFileToList();
+        }
+
+        [TestMethod]
+        public void TestUserInit() {
+            var userFile = new TextFile("user", @"C:\Users\Simone\Desktop\TestFiles\user.txt", ".txt");
+            userFile.UsersInit();
             var actualResult = userFile.ReadFileToList();
         }
     }

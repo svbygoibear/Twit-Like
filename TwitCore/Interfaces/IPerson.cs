@@ -7,5 +7,6 @@ namespace TwitCore.Interfaces {
     public interface IPerson { //used to define any person in the twitter-like system
         String Name { get; set; }
         String Surname { get; set; }
+        String Handle { get; set; }
     }
 }
