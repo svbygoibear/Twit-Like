@@ -32,8 +32,7 @@ namespace Twit_Like_Unit_Test {
         [TestMethod]
         public void TestUserInit() {
             var userFile = new TextFile("user", @"C:\Users\Simone\Desktop\TestFiles\user.txt", ".txt");
-            userFile.UsersInit();
-            var actualResult = userFile.ReadFileToList();
+            var actualResult = userFile.UsersInit();
         }
     }
 }

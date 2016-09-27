@@ -18,7 +18,7 @@ namespace TwitCore.Helpers {
         public static List<IPerson> UsersInit(this TextFile file) {
             var result = new List<IPerson>();
             file.ReadFileToList().ForEach(line => {
-                var fStartEnd = GetStartEnd(line, "follows");
+                var fStartEnd = line.GetStartEnd("follows");
                 if (fStartEnd.Item1 != 0 && fStartEnd.Item2 != 0) {
                     var handle = line.Substring(0, fStartEnd.Item1).Trim(' ');
                     var userFollowers = line.Substring(fStartEnd.Item2).Split(',').ToList();
@@ -37,13 +37,38 @@ namespace TwitCore.Helpers {
         public static void AddUser(List<IPerson> users, string userHandle, List<String> userFollowers) {
             if(CheckIfUserExists(users, userHandle) == true) {
                 var currentUser = users.Cast<User>().GetExistingUser(userHandle);
+                if (currentUser.Following == null)
+                    currentUser.Following = new List<IPerson>();
                 currentUser.Following.AddFollowers(userFollowers);
+                currentUser.Following.AddFollowersToUsers(users);
             }
             else {
                 var followers = new List<IPerson>();
                 followers.AddFollowers(userFollowers);
                 users.Add(new User(userHandle, followers));
+                followers.AddFollowersToUsers(users);
             }
+        }
+
+        /// <summary>
+        /// Adds all the followers that do not exist in the users list to the users list.
+        /// </summary>
+        /// <param name="followers">All the followers.</param>
+        /// <param name="users">All the current users.</param>
+        public static void AddFollowersToUsers(this List<IPerson> followers, List<IPerson> users) {
+            followers.ForEach(follower => {
+                users.AddFollowerToUsers(follower);
+            });
+        }
+
+        /// <summary>
+        /// Adds a follower to the users list if it does not exist there.
+        /// </summary>
+        /// <param name="users">List of the users.</param>
+        /// <param name="follower">The follower to add.</param>
+        public static void AddFollowerToUsers(this List<IPerson> users, IPerson follower) {
+            if (users.FirstOrDefault(x => x.Handle == follower.Handle) == null)
+                users.Add(follower);
         }
 
         /// <summary>
@@ -96,20 +121,6 @@ namespace TwitCore.Helpers {
         public static void AddFollower(this List<IPerson> followers, string followerHandle) {
             if (followers.CheckIfUserExists(followerHandle) == false)
                 followers.Add(new User(followerHandle, null));
-        }
-
-        /// <summary>
-        /// This is used to determine the start and end index of a word in a string.
-        /// </summary>
-        /// <param name="Text">String to find the word in.</param>
-        /// <param name="Keyword">Keyword to look for in the string.</param>
-        /// <returns>Returns a tuple with the start and end index of the keyword.</returns>
-        public static Tuple<int, int> GetStartEnd(string Text, string Keyword) {
-            var start = Text.IndexOf(Keyword);
-            if (start > -1)
-                return new Tuple<int, int>(start, Keyword.Length + start);
-            else
-                return new Tuple<int, int>(0, 0);
         }
     }
 }
