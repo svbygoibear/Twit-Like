@@ -10,16 +10,17 @@ namespace TwitCore.Helpers {
     /// </summary>
     public static class TweetAnalyser {
         public static List<Tweet> TweetsInit(this TextFile file) {
+            var result = new List<Tweet>();
             file.ReadFileToList().ForEach(line => {
                 var tStartEnd = line.GetStartEnd(">");
                 if (tStartEnd.Item1 != 0 && tStartEnd.Item2 != 0) {
                     var userHandle = line.Substring(0, tStartEnd.Item1).Trim(' ');
-                    var userFollowers = line.Substring(tStartEnd.Item2).Split(',');
-
+                    var message = line.Length <= 140 ? line.Substring(tStartEnd.Item2).Trim(' ') 
+                        : line.Substring(tStartEnd.Item2, 140).Trim(' ') + "...";
+                    result.Add(new Tweet(0, 0, message, userHandle));
                 }
             });
-
-            return new List<Tweet>();
+            return result;
         }
     }
 }
