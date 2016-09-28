@@ -58,19 +58,45 @@ From the instructions given, the following assumptions can be deducted from it:
 - Lastly, invalid lines in either one of the text files can be ignored and should not be considered by the system.
 
 ###Code Snippet
-Todo
+There is two main parts to using the library (as seen in the example as per the console application), the first one is retrieving all the users and their followers:
+```javascript
+var userFile = new TextFile("user", @"C:\Users\UserName\Desktop\TestFiles\user.txt", ".txt");
+var uf = userFile.UsersInit();
+```
 
-##Motivation
-Todo
+The other part being the tweet files, which can be accessed using:
+```javascript
+var tweetFile = new TextFile("tweet", @"C:\Users\UserName\Desktop\TestFiles\tweet.txt", ".txt");
+var tf = tweetFile.TweetsInit();
+```
 
 ##Installation
-Todo
-
-##Tests
-Todo
+To run this app, you'll need .NET 4.5 or higher installed on your machine, and to open up the project file you'll need Visual Studio. Other than that, no installation required. Microsoft .NET Framework 4.5 can be installed by downloading it from the microsoft website.
 
 ##Contributors
-Todo
+Feel free to pop me a message or flag an issue if you come across it - I'll see what I can do about it.
 
 ##License
-Todo
+
+Copyright © `2016` `Simone van Buuren`
+
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the “Software”), to deal in the Software without
+restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
