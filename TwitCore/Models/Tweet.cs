@@ -48,7 +48,7 @@ namespace TwitCore.Models{
 
         #region public methods
         public override string ToString() {
-            return string.Format("@{1}: {2}", userHandle, message);
+            return string.Format("@{0}: {1}", userHandle, message);
         }
         #endregion public methods
     }

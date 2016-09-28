@@ -9,6 +9,11 @@ namespace TwitCore.Helpers {
     /// A helper used to analyse the tweet.txt file
     /// </summary>
     public static class TweetAnalyser {
+        /// <summary>
+        /// Generates a list of tweets.
+        /// </summary>
+        /// <param name="file">Origin file for all of the tweets.</param>
+        /// <returns></returns>
         public static List<Tweet> TweetsInit(this TextFile file) {
             var result = new List<Tweet>();
             file.ReadFileToList().ForEach(line => {
