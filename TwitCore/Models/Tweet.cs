@@ -43,7 +43,13 @@ namespace TwitCore.Models{
             this.DateTUser = dateTUser;
             this.Message = message;
             this.UserHandle = userHandle;
-        } 
+        }
         #endregion constructor
+
+        #region public methods
+        public override string ToString() {
+            return string.Format("@{1}: {2}", userHandle, message);
+        }
+        #endregion public methods
     }
 }

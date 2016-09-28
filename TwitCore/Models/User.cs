@@ -61,7 +61,7 @@ namespace TwitCore.Models {
 
         #region public methods
         public override string ToString() {
-            return string.Format("User Handle: {0}", this.Handle);
+            return string.Format("{0}", this.Handle);
         }
         #endregion public methods
     }

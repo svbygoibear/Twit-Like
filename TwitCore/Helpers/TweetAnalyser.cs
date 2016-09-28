@@ -17,7 +17,7 @@ namespace TwitCore.Helpers {
                     var userHandle = line.Substring(0, tStartEnd.Item1).Trim(' ');
                     var message = line.Length <= 140 ? line.Substring(tStartEnd.Item2).Trim(' ') 
                         : line.Substring(tStartEnd.Item2, 140).Trim(' ') + "...";
-                    result.Add(new Tweet(0, 0, message, userHandle));
+                    result.Add(new Tweet(DateTime.Now.Ticks, 0, message, userHandle));
                 }
             });
             return result;
